@@ -13,7 +13,7 @@ func main() {
 
 	}
 
-	cmd := cmd.RootCmd(os.Args[1:]) // use [2:0]
+	cmd := cmd.RootCmd(os.Args[1:]) 
 	if err := cmd; err != nil {
 		fmt.Println("Error:", err)
 	}
