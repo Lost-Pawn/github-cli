@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	if len(os.Args) < 3 {
-		fmt.Println(`Please provide a command and username as an argument.`)
+	if len(os.Args) < 2 {
+		fmt.Println(`Please provide a command.`)
 		return
 
 	}
