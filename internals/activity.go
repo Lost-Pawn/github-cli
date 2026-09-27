@@ -153,3 +153,5 @@ func WatchGitHubRepo(repo string, interval int) error {
 
 	return nil
 }
+
+fmt.Println("for testing purpose of git-watch cmd")
