@@ -27,7 +27,6 @@ func RootCmd(args []string) error {
 		if *interval <= 0 {
 			return fmt.Errorf("Please provide a valid interval in seconds using the -interval flag.")
 		}
-
 		fmt.Printf("Watching repository '%s' for new commits every %d seconds...\n", *repo, *interval)
 		err := activity.WatchGitHubRepo(*repo, *interval)
 		if err != nil {
