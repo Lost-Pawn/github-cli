@@ -39,11 +39,11 @@ github-cli github-activity lost-pawn
 Sample output:
 
 ```
-Recent GitHub activities for user 'torvalds':
-- Pushed to repository 'torvalds/linux' at 2026-09-20T10:15:00Z
-  Commit message: fix off-by-one in scheduler
-- Forked repository 'someuser/somerepo' to 'torvalds/somerepo' at 2026-09-19T08:00:00Z
-- Issue 'Build failing on ARM' (number 42) in repository 'torvalds/linux', Action: opened at 2026-09-18T14:30:00Z
+Recent GitHub activities for user 'lost-pawn':
+- Pushed to repository 'lost-pawn/github-cli' at 2026-09-20T10:15:00Z
+  Commit message: refactor: docs update example output
+- Forked repository 'someuser/somerepo' to 'lost-pawn/somerepo' at 2026-09-19T08:00:00Z
+- Issue 'Build failing on Destro' (number 42) in repository 'lost-pawn/Destro', Action: opened at 2026-09-18T14:30:00Z
 ```
 
 ### Watch a repository for new activity
