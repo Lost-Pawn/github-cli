@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github-cli/internals/activity"
+	"github-cli/internals"
 )
 
 func RootCmd(args []string) error {
@@ -13,10 +13,7 @@ func RootCmd(args []string) error {
 			return err
 		}
 	case "git-watch":
-		// err := activity.WatchRepository(args[1:])
-		// if err != nil {
-		// 	return err
-		// }
+		fmt.Println("git-watch command is not implemented yet.")
 	default:
 		fmt.Println(`Invalid command. Please use 'github-activity' or 'git-watch'.`)
 		fmt.Println("Example:")
