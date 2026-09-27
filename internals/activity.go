@@ -1,19 +1,21 @@
 package activity
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
-	"encoding/json"
+	"time"
 )
 
 type GitHubActivity struct {
-	Type 	string `json:"type"`
-	Repo    Repo  `json:"repo"`
-	CreatedAt string `json:"created_at"`
+	ID 			string 	`json:"id"`
+	Type 		string 	`json:"type"`
+	Repo    	Repo  	`json:"repo"`
+	CreatedAt 	string 	`json:"created_at"`
 
 	Payload struct {
-		Action string `json:"action"`
-		Ref string `json:"ref"`
+		Action 	string `json:"action"`
+		Ref 	string `json:"ref"`
 		RefType string `json:"ref_type"`
 
 		Commits []struct {
@@ -25,8 +27,8 @@ type GitHubActivity struct {
 		} `json:"forkee"`
 
 	    Issue struct {
-			Title string `json:"title"`
-			Number int    `json:"number"`
+			Title 	string `json:"title"`
+			Number 	int    `json:"number"`
 		} `json:"issue"`
 
 		Comment struct {
@@ -34,8 +36,8 @@ type GitHubActivity struct {
 		} `json:"comment"`
 
 		PullRequest struct {
-			Title string `json:"title"`
-			PRNumber int    `json:"number"`
+			Title 		string `json:"title"`
+			PRNumber 	int    `json:"number"`
 		} `json:"pull_request"`
 
 	} `json:"payload"`
@@ -103,3 +105,4 @@ func DisplayActivities(username string, activities []GitHubActivity) error {
 	}
 	return nil
 }
+
