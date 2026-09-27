@@ -15,7 +15,7 @@ Built as part of the [roadmap.sh backend beginner projects](https://roadmap.sh/p
 Clone the repo and install the binary:
 
 ```bash
-git clone https://github.com/<your-username>/github-cli.git
+git clone https://github.com/lost-pawn/github-cli.git
 cd github-cli
 go install .
 ```
