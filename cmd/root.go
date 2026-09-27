@@ -32,6 +32,11 @@ func RootCmd(args []string) error {
 		if err != nil {
 			return err
 		}
+		case "help":
+		fmt.Println("Usage:")
+		fmt.Println("  github-activity <username>          - Fetch and display recent GitHub activities for a user.")
+		fmt.Println("  git-watch -repo <owner/repo> -interval <seconds> - Watch a GitHub repository for new commits.")
+		fmt.Println("  help                                 - Show this help message.")
 	default:
 		fmt.Println(`Invalid command. Please use 'github-activity' or 'git-watch'.`)
 		fmt.Println("Example:")
