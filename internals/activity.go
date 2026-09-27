@@ -106,3 +106,50 @@ func DisplayActivities(username string, activities []GitHubActivity) error {
 	return nil
 }
 
+func WatchGitHubRepo(repo string, interval int) error {
+	ticker := time.NewTicker(time.Duration(interval) * time.Second)
+	defer ticker.Stop()
+	var recentEvents string
+
+	for range ticker.C {
+		activities, err := http.Get(fmt.Sprintf("https://api.github.com/repos/%s/events", repo))
+		if err != nil {
+			return err
+		}
+		defer activities.Body.Close()
+
+		if activities.StatusCode == 404 {
+			return fmt.Errorf("Repository '%s' not found.", repo)
+		}
+
+		if activities.StatusCode != http.StatusOK {
+			return fmt.Errorf("Failed to fetch GitHub activities: %s", activities.Status)
+		}
+
+		var activityList []GitHubActivity
+		err = json.NewDecoder(activities.Body).Decode(&activityList)
+		if err != nil {
+			return fmt.Errorf("Failed to decode GitHub activities: %v", err)
+		}
+
+		if len(activityList) == 0 {
+			fmt.Printf("No recent activities found for repository '%s'.\n", repo)
+			continue
+		}
+
+		if recentEvents == "" {
+			recentEvents = activityList[0].ID
+			continue
+		}
+
+		for _, activity := range activityList {
+			if activity.ID == recentEvents {
+				break
+			}
+			fmt.Printf("New activity in repository '%s': %s at %s\n", activity.Repo.Name, activity.Type, activity.CreatedAt)
+		}
+		recentEvents = activityList[0].ID
+	}
+
+	return nil
+}
