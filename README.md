@@ -33,7 +33,7 @@ github-cli github-activity <username>
 Example:
 
 ```bash
-github-cli github-activity torvalds
+github-cli github-activity lost-pawn
 ```
 
 Sample output:
